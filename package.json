@@ -39,7 +39,7 @@
     "dev:start": "nodemon ./server-build/index.js",
     "dev": "npm-run-all --parallel build dev:*",
     "start": "npm run dev",
-    "heroku-postbuild": "npm install && npm run build"
+    "heroku-postbuild": "npm run build"
   },
   "eslintConfig": {
     "extends": "react-app"
