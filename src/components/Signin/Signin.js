@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Signup from '../../components/Signup/signup'
-import Login from '../../components/Login/Login'
+import Login from '../LogIn/Login'
 import Facebook from '../../components/Facebook/Facebook'
 import { createMemoryHistory } from 'history';
 
