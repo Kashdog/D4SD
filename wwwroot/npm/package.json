@@ -1,36 +1,38 @@
 {
-  "_from": "toastr",
+  "_args": [
+    [
+      "toastr@2.1.4",
+      "/Users/lyu/Documents/GitHub/D4SD"
+    ]
+  ],
+  "_from": "toastr@2.1.4",
   "_id": "toastr@2.1.4",
   "_inBundle": false,
   "_integrity": "sha1-i0O+ZPudDEFIcURvLbjoyk6V8YE=",
   "_location": "/toastr",
   "_phantomChildren": {},
   "_requested": {
-    "type": "tag",
+    "type": "version",
     "registry": true,
-    "raw": "toastr",
+    "raw": "toastr@2.1.4",
     "name": "toastr",
     "escapedName": "toastr",
-    "rawSpec": "",
+    "rawSpec": "2.1.4",
     "saveSpec": null,
-    "fetchSpec": "latest"
+    "fetchSpec": "2.1.4"
   },
   "_requiredBy": [
-    "#USER",
     "/"
   ],
   "_resolved": "https://registry.npmjs.org/toastr/-/toastr-2.1.4.tgz",
-  "_shasum": "8b43be64fb9d0c414871446f2db8e8ca4e95f181",
-  "_spec": "toastr",
-  "_where": "/Users/kashdog/Downloads/ssr",
+  "_spec": "2.1.4",
+  "_where": "/Users/lyu/Documents/GitHub/D4SD",
   "bugs": {
     "url": "http://stackoverflow.com/questions/tagged/toastr"
   },
-  "bundleDependencies": false,
   "dependencies": {
     "jquery": ">=1.12.0"
   },
-  "deprecated": false,
   "description": "ToastrJS is a JavaScript library for Gnome / Growl type non-blocking notifications. jQuery is required. The goal is to create a simple core library that can be customized and extended.",
   "devDependencies": {
     "gulp": "^3.8.10",

@@ -15,7 +15,7 @@ class Entry extends React.Component {
         <div class="panel-heading"><strong>Upload Submission</strong> for entry</div>
         <div class="panel-body">
           <h4>Select files from your computer</h4>
-          <form action="" method="post" enctype="multipart/form-data" id="js-upload-form">
+          <form action="" method="post"  id="js-upload-form">
             <div class="form-inline">
               <div class="form-group">
                 <input type="file" name="files[]" id="js-upload-files" multiple></input>
