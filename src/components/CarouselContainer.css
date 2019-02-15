@@ -1,0 +1,13 @@
+.CarouselContainer{
+    width: 600px;
+    height: 200px;
+    margin: auto;
+}
+
+.displayNone{
+    display: none;
+}
+
+.displayBlock{
+    display: block;
+}

@@ -1,0 +1,15 @@
+.connected {
+  height: 25px;
+  width: 25px;
+  background-color: rgb(72, 255, 0);
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.disconnected {
+  height: 25px;
+  width: 25px;
+  background-color: rgb(255, 0, 0);
+  border-radius: 50%;
+  display: inline-block;
+}

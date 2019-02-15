@@ -4,9 +4,14 @@ import './index.css';
 import App from './App';
 import { BrowserRouter } from 'react-router-dom';
 import * as serviceWorker from './serviceWorker';
+import {StripeProvider} from 'react-stripe-elements-universal';
 
 ReactDOM.hydrate(<BrowserRouter>
+<StripeProvider apiKey="pk_test_12345">
+      
+    
     <App />
+    </StripeProvider>
   </BrowserRouter>, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change

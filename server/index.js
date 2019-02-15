@@ -1,5 +1,6 @@
 import path from 'path';
 import fs from 'fs';
+import _ from 'underscore';
 
 import React from 'react';
 import express from 'express';
@@ -87,7 +88,7 @@ async function(req, email, password, done) { // callback with email and password
 passport.use(new GoogleStrategy({
     clientID: '211429358051-4kaq7m4rnm6dghea3bnjo4b9llhuarlq.apps.googleusercontent.com',
     clientSecret: 'onE1iuNWipz7L4kT0pn4I_p-',
-    callbackURL: "https://df67f0dc.ngrok.io/auth/google/callback"
+    callbackURL: "https://48eda144.ngrok.io/auth/google/callback"
   },
   function(accessToken, refreshToken, profile, done) {
     console.log(profile.emails[0].value);
@@ -125,7 +126,7 @@ passport.use(
     {
       clientID: '316349652559286',
       clientSecret: 'f87c7b2d0ca1a5892ebd8581d1fa5b43',
-      callbackURL: 'https://df67f0dc.ngrok.io/auth/facebook/callback',
+      callbackURL: 'https://48eda144.ngrok.io/auth/facebook/callback',
       profileFields: ['id', 'displayName', 'email', 'birthday', 'friends', 'first_name', 'last_name', 'middle_name', 'gender', 'link']
     },
     async (accessToken, refreshToken, profile, done) => {
@@ -174,6 +175,27 @@ passport.deserializeUser((user, done) => {
 })
 
 
+var stripe = require("stripe")("sk_test_IQAVRe3EpYUULHqLCwyjK4hI");
+
+app.post("/api/pay", function(req, res) {
+    // Token is created using Checkout or Elements!
+  // Get the payment token ID submitted by the form:
+    console.log(req.body);
+    const token = req.body.token; // Using Express
+    console.log(token);
+
+    const charge = stripe.charges.create({
+      amount: req.body.amount,
+      currency: 'usd',
+      description: 'Example charge',
+      source: 'tok_visa',
+    });
+
+    res.status(201).send(`${req.body.amount} payed`);
+});
+
+
+
 app.get('/logout', function(req, res){
   req.logout();
   res.redirect('/');
@@ -220,9 +242,7 @@ app.get('/auth/facebook/callback',
 
 app.get('/api/customers', (req, res) => {
   const customers = [
-    {id: 1, firstName: 'John', lastName: 'Doe'},
-    {id: 2, firstName: 'Brad', lastName: 'Traversy'},
-    {id: 3, firstName: 'Mary', lastName: 'Swanson'},
+    {id: 1, firstName: 'Steven', lastName: 'Dow', message: 'Did you find this easter egg?'},
   ];
 
   res.json(customers);
@@ -344,6 +364,49 @@ app.get('/*', (req, res) => {
   });
 });
 
-app.listen(PORT, () => {
-  console.log(`😎 Server is listening on port ${PORT}`);
+// Socket IO
+
+let connections = [];
+let title = 'Untitled Entry';
+let audience = [];
+
+const server = app.listen(PORT);
+const io = require('socket.io').listen(server);
+io.sockets.on('connection', function(socket) {
+
+  socket.once('disconnect', function() {
+    
+    var member = _.findWhere(audience, { id: this.id });
+
+    if(member){
+      audience.splice(audience.indexOf(member),1);
+      io.sockets.emit('audience', audience);
+      console.log(`Left ${member.name} (${audience.length} members)`)
+    }
+    connections.splice(connections.indexOf(socket), 1);
+    socket.disconnect();
+    console.log("Disconnected: %s sockets remaining.", connections.length);
+  });
+
+  connections.push(socket);
+
+  socket.on('join', function(payload) {
+    var newMember = {
+      id: this.id,
+      name: payload.name
+    };
+    this.emit('joined', newMember);
+    audience.push(newMember);
+    io.sockets.emit('audience', audience);
+    console.log(`Audience Joined: ${payload.name}`)
+  });
+  socket.emit('welcome', {
+		title: title
+  });
+  
+  console.log("Connected: %s sockets connected", connections.length);
 });
+console.log(`😎 Server is listening on port ${PORT}`);
+
+
+
