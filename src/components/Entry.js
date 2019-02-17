@@ -11,22 +11,22 @@ class Entry extends React.Component {
         
 
     }
-
     state = {
-      files : null
+        file : null
+    };
+
+    handleSubmit=e=>{
+      this.setState({
+        file:e.target.files[0]}
+        );
+      
     }
 
-    handleSubmit(e){
-      var files = e.target.files || e.dataTransfer.files;
-      this.setState({files:files})
-    }
-
-    handleUpload(e){
+    handleUpload=()=>{
       let formData = new FormData();
-      if (this.multiple) {
-        formData.append("files", this.state.files);
-      } else {
-        formData.append("file", this.state.files[0]);
+      formData.append("file", this.state.file);
+      for (var pair of formData.entries()) {
+        console.log(pair[0]+ ', ' + pair[1]); 
       }
       axios({
         method: 'post',
@@ -54,7 +54,7 @@ class Entry extends React.Component {
                 ></input>
               </div>
               <a type="submit" class="btn btn-sm btn-primary" id="js-upload-submit"
-              onClick={(e)=>this.handleUpload(e)}
+              onClick={()=>this.handleUpload()}
               >Upload files</a>
             </div>
           </form>

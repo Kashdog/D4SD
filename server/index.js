@@ -16,7 +16,8 @@ import bodyParser   from 'body-parser';
 const FacebookStrategy    = require('passport-facebook').Strategy;
 const LocalStrategy       = require('passport-local').Strategy;
 const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
-
+const multer = require('multer');
+const upload = multer();
 
 import App from '../src/App';
 
@@ -331,7 +332,10 @@ app.get('/api/activation/:token', (req, res) => {
 });
 
 app.post('/api/uploadfile', (req, res) => {
-  res.status(200).json({message:'I received the file!'});
+  console.log(req.files)
+  res.status(200).json({
+    message:'I received the file!'
+});
 })
 
 function hashPassword(username, password) {
