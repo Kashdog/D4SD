@@ -1,5 +1,6 @@
 import React from 'react';
 import './Entry.css';
+import axios from 'axios'
 
 class Entry extends React.Component {
     componentDidMount(){
@@ -10,6 +11,36 @@ class Entry extends React.Component {
         
 
     }
+
+    state = {
+      files : null
+    }
+
+    handleSubmit(e){
+      var files = e.target.files || e.dataTransfer.files;
+      this.setState({files:files})
+    }
+
+    handleUpload(e){
+      let formData = new FormData();
+      if (this.multiple) {
+        formData.append("files", this.state.files);
+      } else {
+        formData.append("file", this.state.files[0]);
+      }
+      axios({
+        method: 'post',
+        url: 'http://localhost:3000/api/uploadfile',
+        data: formData,
+        headers: {
+          'Content-Type': 'multipart/form-data'
+      }
+    })
+      .then(function (response) {
+        console.log(response);
+      })
+    }
+
     render(){
         return(<div><div class="panel panel-default">
         <div class="panel-heading"><strong>Upload Submission</strong> for entry</div>
@@ -18,9 +49,13 @@ class Entry extends React.Component {
           <form action="" method="post"  id="js-upload-form">
             <div class="form-inline">
               <div class="form-group">
-                <input type="file" name="files[]" id="js-upload-files" multiple></input>
+                <input type="file" name="files[]" id="js-upload-files" multiple
+                onChange={(e)=>this.handleSubmit(e)}
+                ></input>
               </div>
-              <button type="submit" class="btn btn-sm btn-primary" id="js-upload-submit">Upload files</button>
+              <a type="submit" class="btn btn-sm btn-primary" id="js-upload-submit"
+              onClick={(e)=>this.handleUpload(e)}
+              >Upload files</a>
             </div>
           </form>
 

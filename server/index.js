@@ -330,6 +330,10 @@ app.get('/api/activation/:token', (req, res) => {
   }) 
 });
 
+app.post('/api/uploadfile', (req, res) => {
+  res.status(200).json({message:'I received the file!'});
+})
+
 function hashPassword(username, password) {
   var s = username + ':' + password;
   return crypto.createHash('sha256').update(s).digest('hex');
