@@ -24,10 +24,7 @@ class Entry extends React.Component {
 
     handleUpload=()=>{
       let formData = new FormData();
-      formData.append("file", this.state.file);
-      for (var pair of formData.entries()) {
-        console.log(pair[0]+ ', ' + pair[1]); 
-      }
+      formData.append("pdf", this.state.file);
       axios({
         method: 'post',
         url: 'http://localhost:3000/api/uploadfile',
@@ -49,7 +46,7 @@ class Entry extends React.Component {
           <form action="" method="post"  id="js-upload-form">
             <div class="form-inline">
               <div class="form-group">
-                <input type="file" name="files[]" id="js-upload-files" multiple
+                <input type="file" name="pdf" id="js-upload-files" multiple
                 onChange={(e)=>this.handleSubmit(e)}
                 ></input>
               </div>
