@@ -1,0 +1,17 @@
+{
+    "window.zoomLevel": 0,
+    "editor.fontSize": 16,
+    "editor.minimap.enabled": false,
+    "terminal.integrated.cursorStyle": "line",
+    "terminal.integrated.fontSize": 16,
+    "workbench.statusBar.feedback.visible": false,
+    "workbench.startupEditor": "newUntitledFile",
+    "editor.fontFamily": "Monaco",
+    "extensions.ignoreRecommendations": false,
+    "explorer.confirmDragAndDrop": false,
+    "explorer.confirmDelete": false,
+    "emmet.includeLanguages": {
+        "javascriptreact": "html",
+        "javascript": "html"
+    }
+}

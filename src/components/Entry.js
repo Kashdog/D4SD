@@ -1,6 +1,7 @@
 import React from 'react';
 import './Entry.css';
 import axios from 'axios'
+import { triggerAsyncId } from 'async_hooks';
 
 class Entry extends React.Component {
     componentDidMount(){

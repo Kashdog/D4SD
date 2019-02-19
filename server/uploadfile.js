@@ -12,7 +12,9 @@ var storage = multer.diskStorage({
     }
 });
 
-var upload = multer({ storage: storage }).single('pdf');
+var upload = multer({
+    storage: storage
+}).single('pdf');
 
 
 router.post('/', function (req, res) {
