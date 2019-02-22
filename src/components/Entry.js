@@ -1,5 +1,7 @@
 import React from 'react';
 import './Entry.css';
+import axios from 'axios'
+// import { triggerAsyncId } from 'async_hooks';
 
 class Entry extends React.Component {
     componentDidMount(){
@@ -10,6 +12,33 @@ class Entry extends React.Component {
         
 
     }
+    state = {
+        file : null
+    };
+
+    handleSubmit=e=>{
+      this.setState({
+        file:e.target.files[0]}
+        );
+      
+    }
+
+    handleUpload=()=>{
+      let formData = new FormData();
+      formData.append("pdf", this.state.file);
+      axios({
+        method: 'post',
+        url: 'http://localhost:3000/api/uploadfile',
+        data: formData,
+        headers: {
+          'Content-Type': 'multipart/form-data'
+      }
+    })
+      .then(function (response) {
+        console.log(response);
+      })
+    }
+
     render(){
         return(<div><div class="panel panel-default">
         <div class="panel-heading"><strong>Upload Submission</strong> for entry</div>
@@ -18,9 +47,13 @@ class Entry extends React.Component {
           <form action="" method="post"  id="js-upload-form">
             <div class="form-inline">
               <div class="form-group">
-                <input type="file" name="files[]" id="js-upload-files" multiple></input>
+                <input type="file" name="pdf" id="js-upload-files" multiple
+                onChange={(e)=>this.handleSubmit(e)}
+                ></input>
               </div>
-              <button type="submit" class="btn btn-sm btn-primary" id="js-upload-submit">Upload files</button>
+              <a type="submit" class="btn btn-sm btn-primary" id="js-upload-submit"
+              onClick={()=>this.handleUpload()}
+              >Upload files</a>
             </div>
           </form>
 

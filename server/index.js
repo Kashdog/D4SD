@@ -17,13 +17,15 @@ const FacebookStrategy    = require('passport-facebook').Strategy;
 const LocalStrategy       = require('passport-local').Strategy;
 const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 
+const uploadfile = require('./uploadfile');
+
 
 import App from '../src/App';
 
 const PORT = process.env.PORT || 3000;
 const app = express();
 
-
+app.use('/api/uploadfile', uploadfile);
 // Body Parser and Cookie Parser
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -329,6 +331,8 @@ app.get('/api/activation/:token', (req, res) => {
       }
   }) 
 });
+
+
 
 function hashPassword(username, password) {
   var s = username + ':' + password;
