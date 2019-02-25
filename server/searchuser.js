@@ -14,10 +14,7 @@ var config = {
 var pool = new pg.Pool(config);
 
 router.post('/', function (req, res) {
-    res.json({
-        success: true,
-        message: 'u searched'
-    });
+    var msg = '';
     var email = req.body.email;
     console.log(email)
     pool.connect().then(client=>{ 
@@ -26,12 +23,19 @@ router.post('/', function (req, res) {
         .then(res=>{
             if (res.rows.length){
                 console.log(res.rows[0])
+                msg = "We found ur friend!"
             }else{
                 console.log("no found")
+                msg = "ur friend didn't register yet!"
             }
         }).then(res=>{
             client.release()
         })
+        })
+        .then(()=>{
+            res.json({
+                message: msg
+            });
         })
 });
 

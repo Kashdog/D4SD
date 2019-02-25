@@ -40,6 +40,7 @@
     "react-stripe-checkout": "^2.6.3",
     "react-stripe-elements": "^2.0.3",
     "react-stripe-elements-universal": "^1.2.0-3",
+    "react-toastify": "^4.5.2",
     "redux": "^4.0.1",
     "redux-thunk": "^2.3.0",
     "request": "^2.65.0",
@@ -51,6 +52,7 @@
     "toastr": "^2.1.4",
     "underscore": "^1.9.1",
     "url-loader": "^1.1.2",
+    "validator": "^10.11.0",
     "xml2js": "^0.4.15"
   },
   "scripts": {
