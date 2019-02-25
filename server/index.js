@@ -18,6 +18,7 @@ const LocalStrategy       = require('passport-local').Strategy;
 const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 
 const uploadfile = require('./uploadfile');
+const searchuser = require('./searchuser');
 
 
 import App from '../src/App';
@@ -26,10 +27,12 @@ const PORT = process.env.PORT || 3000;
 const app = express();
 
 app.use('/api/uploadfile', uploadfile);
+
 // Body Parser and Cookie Parser
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser())
+app.use('/api/searchuser', searchuser);
 app.use(session({
   path: "/",
   secret: "feanarocurufinweartanaroereiniongilgalad",
