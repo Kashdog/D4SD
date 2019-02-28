@@ -1,3 +1,4 @@
+import React from 'react';
 class StripeForm extends React.Component {
     constructor() {
       super();

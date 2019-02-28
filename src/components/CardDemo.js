@@ -76,8 +76,7 @@ class _CardForm extends Component {
   render() {
     return (
       <div className="CardDemo">
-          <script src="https://checkout.stripe.com/checkout.js"></script>
-            <StripeCheckout
+      <StripeCheckout
         amount={this.amount}
         label="Pay with 💳"
         description="Awesome Product"
