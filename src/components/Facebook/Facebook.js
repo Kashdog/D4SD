@@ -18,7 +18,7 @@ class Facebook extends React.Component {
   render() {
     return (
       <div>
-        <a href="/flogin"><button>FACEBOOK LOGIN</button></a>
+        <a href="/flogin"><button>Facebook Login</button></a>
       </div>
     );
   }

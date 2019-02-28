@@ -2,7 +2,7 @@
   "_args": [
     [
       "toastr@2.1.4",
-      "/Users/lyu/Documents/GitHub/D4SD"
+      "C:\\Users\\vince\\D4SD_Project\\D4SD"
     ]
   ],
   "_from": "toastr@2.1.4",
@@ -26,7 +26,7 @@
   ],
   "_resolved": "https://registry.npmjs.org/toastr/-/toastr-2.1.4.tgz",
   "_spec": "2.1.4",
-  "_where": "/Users/lyu/Documents/GitHub/D4SD",
+  "_where": "C:\\Users\\vince\\D4SD_Project\\D4SD",
   "bugs": {
     "url": "http://stackoverflow.com/questions/tagged/toastr"
   },

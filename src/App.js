@@ -42,6 +42,8 @@ class App extends Component {
               <Route path="/activation/:id" component={Activation} />
               <Route path="/poll" component={Poll} />
               <Route path="/create" component={Entry} />
+
+              <Route redirectTo="/home"/>
             </Switch>
           </div>
       </Provider>
