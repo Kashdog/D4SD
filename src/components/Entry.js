@@ -3,7 +3,6 @@ import './Entry.css';
 import axios from 'axios'
 import SearchEmail from './SearchEmail'
 // import { triggerAsyncId } from 'async_hooks';
-
 class Entry extends React.Component {
     componentDidMount(){
         let link = document.createElement("link");

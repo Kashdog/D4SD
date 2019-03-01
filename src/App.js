@@ -18,7 +18,7 @@ import Entry from './components/Entry';
 import { createMemoryHistory } from 'history';
 import {Elements, StripeProvider} from 'react-stripe-elements-universal';
 import CardDemo from './components/CardDemo';
-
+import Feed from './components/Feed/Feed'
 const history = createMemoryHistory();
 
 class App extends Component {
@@ -34,6 +34,7 @@ class App extends Component {
               <Link to='/create' className="active">Create an Entry</Link>
             </header>
             <CurrentUser />
+            <Feed />
             <div className="CardContainer">
               <CardDemo />
             </div>
@@ -42,6 +43,7 @@ class App extends Component {
               <Route path="/activation/:id" component={Activation} />
               <Route path="/poll" component={Poll} />
               <Route path="/create" component={Entry} />
+              <Route path="/feed" component={Feed} />
             </Switch>
           </div>
       </Provider>
