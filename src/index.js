@@ -9,7 +9,6 @@ import {StripeProvider} from 'react-stripe-elements-universal';
 ReactDOM.hydrate(<BrowserRouter>
 <StripeProvider apiKey="pk_test_12345">
       
-    
     <App />
     </StripeProvider>
   </BrowserRouter>, document.getElementById('root'));

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Display from './parts/Display';
-import Join from './parts/Join';
+import Display from '../parts/Display';
+import Join from '../parts/Join';
 import DefaultCarousel from './EntryVote';
 import './Audience.css';
 

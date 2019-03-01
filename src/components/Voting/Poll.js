@@ -2,11 +2,11 @@ import React from 'react';
 import io from 'socket.io-client';
 import axios from 'axios';
 import PropTypes from 'prop-types';
-import Header from '../parts/Header';
-import Audience from '../Audience';
-import Speaker from '../Speaker';
-import Board from '../Board';
-import Error404 from '../Error404';
+// import Header from '../parts/Header';
+import Audience from './Audience';
+import Speaker from './Speaker';
+import Board from './Board';
+import Error404 from './Error404';
 import { StaticRouter, Router, Route, Switch } from 'react-router-dom'
 const NotFoundRoute = Router.NotFoundRoute;
 
