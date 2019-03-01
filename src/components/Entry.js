@@ -1,8 +1,8 @@
 import React from 'react';
 import './Entry.css';
 import axios from 'axios'
+import SearchEmail from './SearchEmail'
 // import { triggerAsyncId } from 'async_hooks';
-
 class Entry extends React.Component {
     componentDidMount(){
         let link = document.createElement("link");
@@ -41,6 +41,7 @@ class Entry extends React.Component {
 
     render(){
         return(<div><div class="panel panel-default">
+        <SearchEmail/>
         <div class="panel-heading"><strong>Upload Submission</strong> for entry</div>
         <div class="panel-body">
           <h4>Select files from your computer</h4>
