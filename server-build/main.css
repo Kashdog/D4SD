@@ -34,7 +34,28 @@ a {
     transform: rotate(360deg);
   }
 }
-/**
+.upload-drop-zone {
+    height: 200px;
+    border-width: 2px;
+    margin-bottom: 20px;
+  }
+  
+  /* skin.css Style*/
+  .upload-drop-zone {
+    color: #ccc;
+    border-style: dashed;
+    border-color: #ccc;
+    line-height: 200px;
+    text-align: center
+  }
+  .upload-drop-zone.drop {
+    color: #222;
+    border-color: #222;
+  }
+
+  .hidden{
+      display: none;
+  }/**
  * The CSS shown here will not be introduced in the Quickstart guide, but shows
  * how you can use CSS to style your Element's container.
  */
@@ -1495,25 +1516,4 @@ body.mobile-week .list-share-circles li:nth-child(5) {
 @keyframes fade {
   from {opacity: .4} 
   to {opacity: 1}
-}.upload-drop-zone {
-    height: 200px;
-    border-width: 2px;
-    margin-bottom: 20px;
-  }
-  
-  /* skin.css Style*/
-  .upload-drop-zone {
-    color: #ccc;
-    border-style: dashed;
-    border-color: #ccc;
-    line-height: 200px;
-    text-align: center
-  }
-  .upload-drop-zone.drop {
-    color: #222;
-    border-color: #222;
-  }
-
-  .hidden{
-      display: none;
-  }
+}

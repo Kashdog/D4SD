@@ -38,7 +38,6 @@ class App extends Component {
             </header>
             <CurrentUser />
             <div className="CardContainer">
-              <CardDemo />
             </div>
             <Switch>
               <Route path="/signin" component={Signin} />
@@ -54,7 +53,7 @@ class App extends Component {
   }
 }
 
-
+// Removed CardDemo
 // TODO Fix redirection
 export default App
 

@@ -13,15 +13,15 @@ import cors  from 'cors';
 import session from 'express-session';
 import cookieParser  from 'cookie-parser';
 import bodyParser   from 'body-parser';
+
+
+import App from '../src/App';
 const FacebookStrategy    = require('passport-facebook').Strategy;
 const LocalStrategy       = require('passport-local').Strategy;
 const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 
 const uploadfile = require('./uploadfile');
 const searchuser = require('./searchuser');
-
-
-import App from '../src/App';
 
 const PORT = process.env.PORT || 3000;
 const app = express();
@@ -50,10 +50,10 @@ app.use(passport.session());
 /** TODO separate into a new file */
 const Pool = require('pg').Pool
 const pool = new Pool({
-  user: 'kashdog',
+  user: 'vincent',
   host: 'localhost',
   database: 'api',
-  password: 'bPCs40260$#',
+  password: 'segfault',
   port: 5432,
 })
 
@@ -279,7 +279,7 @@ app.post('/api/signup', (req, res) => {
       from: 'aneeshkashalikar@gmail.com',
       to: email,
       subject: 'Activate your account on D4SD',
-      html: `<p>Activate your D4SD account <a href="https://932b0b2d.ngrok.io/activation/${token}"`  + '">here</a></p>'
+      html: `<p>Activate your D4SD account <a href="http://localhost:3000/activation/${token}"`  + '">here</a></p>'
   };
   transporter.sendMail(mailOptions, function(error, info){
       if (error) {
