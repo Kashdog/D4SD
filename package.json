@@ -6,7 +6,7 @@
     "@material-ui/core": "^3.9.2",
     "alt": "^0.18.6",
     "async_hooks": "^1.0.0",
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "body-parser": "^1.18.3",
     "bootstrap": "^4.2.1",
     "bower-webpack-plugin": "^0.1.9",
