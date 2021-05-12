@@ -25,7 +25,7 @@
     "http": "0.0.0",
     "jquery": "^3.3.1",
     "multer": "^1.4.1",
-    "nodemailer": "^5.1.1",
+    "nodemailer": "^6.4.16",
     "passport": "^0.4.0",
     "passport-facebook": "^3.0.0",
     "passport-google-oauth": "^1.0.0",
